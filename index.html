@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A Special Question for Saru 💖</title>
+    <style>
+        /* Reset and base styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            /* Beautiful pastel gradient background */
+            background: linear-gradient(135deg, #ffd6e8 0%, #e6f3ff 50%, #ffd6e8 100%);
+            background-size: 400% 400%;
+            animation: gradientShift 15s ease infinite;
+            padding: 20px;
+        }
+
+        /* Gentle gradient animation */
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* Main card container */
+        .card {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 30px;
+            padding: 50px 40px;
+            box-shadow: 0 20px 60px rgba(255, 182, 193, 0.4);
+            max-width: 500px;
+            width: 100%;
+            text-align: center;
+            animation: fadeIn 1s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Teddy bear decoration */
+        .teddy-bears {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            animation: bounce 2s ease-in-out infinite;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        /* Name styling */
+        .name {
+            color: #ff6b9d;
+            font-size: 2rem;
+            font-weight: bold;
+            margin-bottom: 15px;
+            text-shadow: 2px 2px 4px rgba(255, 182, 193, 0.3);
+        }
+
+        /* Main message */
+        .message {
+            color: #666;
+            font-size: 1.1rem;
+            margin-bottom: 30px;
+            line-height: 1.6;
+        }
+
+        /* Big question */
+        .question {
+            color: #ff4d6d;
+            font-size: 2.2rem;
+            font-weight: bold;
+            margin: 30px 0;
+            text-shadow: 2px 2px 4px rgba(255, 77, 109, 0.2);
+        }
+
+        /* Button container */
+        .buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 30px;
+        }
+
+        /* Button styles */
+        button {
+            padding: 18px 40px;
+            font-size: 1.3rem;
+            font-weight: bold;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .yes-btn {
+            background: linear-gradient(135deg, #ff6b9d, #ff4d6d);
+            color: white;
+        }
+
+        .yes-btn:hover {
+            transform: scale(1.1);
+            box-shadow: 0 12px 30px rgba(255, 77, 109, 0.4);
+        }
+
+        .no-btn {
+            background: linear-gradient(135deg, #e6e6fa, #d8bfd8);
+            color: #666;
+        }
+
+        .no-btn:hover {
+            transform: scale(1.05);
+        }
+
+        /* Error message styling */
+        .error-message {
+            display: none;
+            background: linear-gradient(135deg, #fff0f5, #ffe6f0);
+            border: 2px dashed #ff6b9d;
+            border-radius: 20px;
+            padding: 20px;
+            margin-top: 25px;
+            color: #ff4d6d;
+            font-size: 1.1rem;
+            font-weight: bold;
+            animation: shake 0.5s ease-in-out;
+        }
+
+        @keyframes shake {
+            0%, 100% { transform: translateX(0); }
+            25% { transform: translateX(-10px); }
+            75% { transform: translateX(10px); }
+        }
+
+        /* Success message styling */
+        .success-message {
+            display: none;
+            animation: popIn 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+        }
+
+        @keyframes popIn {
+            0% {
+                opacity: 0;
+                transform: scale(0.3);
+            }
+            100% {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        .success-message .big-heart {
+            font-size: 5rem;
+            margin-bottom: 20px;
+            animation: heartbeat 1.5s ease-in-out infinite;
+        }
+
+        @keyframes heartbeat {
+            0%, 100% { transform: scale(1); }
+            25% { transform: scale(1.2); }
+            50% { transform: scale(1); }
+        }
+
+        .success-message h2 {
+            color: #ff4d6d;
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+        }
+
+        .success-message p {
+            color: #666;
+            font-size: 1.2rem;
+            margin-top: 15px;
+        }
+
+        .success-message .celebration {
+            font-size: 2rem;
+            margin-top: 20px;
+        }
+
+        /* Love letter styling */
+        .love-letter {
+            text-align: left;
+            background: linear-gradient(135deg, #fff5f8, #ffffff);
+            border-radius: 20px;
+            padding: 35px;
+            margin-top: 30px;
+            box-shadow: 0 10px 30px rgba(255, 182, 193, 0.3);
+            border: 2px solid rgba(255, 182, 193, 0.2);
+            animation: slideUp 0.8s ease-out 0.5s both;
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .love-letter .letter-header {
+            color: #ff6b9d;
+            font-size: 1.4rem;
+            font-weight: bold;
+            margin-bottom: 20px;
+            font-style: italic;
+        }
+
+        .love-letter p {
+            color: #555;
+            font-size: 1rem;
+            line-height: 1.8;
+            margin-bottom: 15px;
+            text-align: left;
+        }
+
+        .love-letter .highlight {
+            color: #ff4d6d;
+            font-weight: 600;
+        }
+
+        .love-letter .signature {
+            margin-top: 25px;
+            text-align: right;
+            color: #ff6b9d;
+            font-size: 1.2rem;
+            font-style: italic;
+            font-weight: bold;
+        }
+
+        .love-letter .signature-heart {
+            display: inline-block;
+            animation: heartPulse 2s ease-in-out infinite;
+        }
+
+        @keyframes heartPulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.3); }
+        }
+
+        /* Confetti animation */
+        .confetti {
+            position: fixed;
+            width: 10px;
+            height: 10px;
+            top: -10px;
+            z-index: 9999;
+            animation: confettiFall linear forwards;
+        }
+
+        @keyframes confettiFall {
+            to {
+                transform: translateY(100vh) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        .floating-hearts {
+            position: fixed;
+            font-size: 2rem;
+            animation: floatUp 4s ease-in-out forwards;
+            pointer-events: none;
+            z-index: 9999;
+        }
+
+        @keyframes floatUp {
+            0% {
+                transform: translateY(0) rotate(0deg);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-100vh) rotate(180deg);
+                opacity: 0;
+            }
+        }
+
+        /* Hidden class */
+        .hidden {
+            display: none;
+        }
+
+        /* Responsive design */
+        @media (max-width: 600px) {
+            .card {
+                padding: 40px 25px;
+            }
+
+            .name {
+                font-size: 1.6rem;
+            }
+
+            .question {
+                font-size: 1.8rem;
+            }
+
+            button {
+                padding: 15px 30px;
+                font-size: 1.1rem;
+            }
+
+            .success-message h2 {
+                font-size: 2rem;
+            }
+
+            .love-letter {
+                padding: 25px 20px;
+            }
+
+            .love-letter .letter-header {
+                font-size: 1.2rem;
+            }
+
+            .love-letter p {
+                font-size: 0.95rem;
+            }
+
+            .love-letter .signature {
+                font-size: 1.1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <!-- Teddy bear decoration -->
+        <div class="teddy-bears">🧸💕🧸</div>
+        
+        <!-- Her name -->
+        <div class="name">Dear Saru,</div>
+        
+        <!-- Sweet message -->
+        <div class="message">
+            You make every day brighter with your smile,<br>
+            and my heart skips a beat whenever I think of you 💖
+        </div>
+        
+        <!-- Main question section -->
+        <div id="questionSection">
+            <div class="question">Will you be my Valentine?</div>
+            
+            <!-- Buttons -->
+            <div class="buttons">
+                <button class="yes-btn" onclick="handleYes()">Yes 💖</button>
+                <button class="no-btn" onclick="handleNo()">No 🙈</button>
+            </div>
+            
+            <!-- Error message (shown when clicking No) -->
+            <div id="errorMessage" class="error-message">
+                ⚠️ Error 404: "No" not found. Please click Yes 🥺💗
+            </div>
+        </div>
+        
+        <!-- Success message (shown when clicking Yes) -->
+        <div id="successMessage" class="success-message hidden">
+            <div class="big-heart">💖</div>
+            <h2>Yay! 🎉</h2>
+            <div class="question">Saru + Me Forever</div>
+            <div class="celebration">🧸💕✨💗🌸</div>
+            
+            <!-- Love Letter -->
+            <div class="love-letter">
+                <div class="letter-header">My dearest Saru 🧸💗,</div>
+                
+                <p>If I had to explain why you should be my Valentine, I don't think I'd start with flowers or chocolates. I'd start with <span class="highlight">us</span>.</p>
+                
+                <p>You are the calm in my chaos, the smile that sneaks up on me even on my worst days. Somehow, without trying, you make everything feel lighter—like life is softer just because you're in it. When I talk to you, the world fades a little. When I think of you, my heart feels at home.</p>
+                
+                <p>You should be my Valentine not because of one day on the calendar, but because <span class="highlight">you make every ordinary day feel special</span>. Because your laughter stays with me long after it fades. Because your kindness, your warmth, and the way you care mean more to me than you probably realize.</p>
+                
+                <p>So if you ask me why you should be my Valentine, the answer is simple:</p>
+                
+                <p><span class="highlight">Because choosing you feels natural.<br>
+                Because loving you feels right.<br>
+                Because if I get to celebrate love, I want it to be with you.</span></p>
+                
+                <div class="signature">
+                    With love <span class="signature-heart">💗</span><br>
+                    Anshii
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Handle "No" button click - show playful error
+        function handleNo() {
+            const errorMessage = document.getElementById('errorMessage');
+            
+            // Show the error message with animation
+            errorMessage.style.display = 'block';
+            
+            // Reset animation by removing and re-adding
+            errorMessage.style.animation = 'none';
+            setTimeout(() => {
+                errorMessage.style.animation = 'shake 0.5s ease-in-out';
+            }, 10);
+            
+            // Hide error message after 3 seconds
+            setTimeout(() => {
+                errorMessage.style.display = 'none';
+            }, 3000);
+        }
+
+        // Create confetti effect
+        function createConfetti() {
+            const colors = ['#ff6b9d', '#ffd6e8', '#e6f3ff', '#ffb6c1', '#ff4d6d', '#dda0dd'];
+            const confettiCount = 50;
+            
+            for (let i = 0; i < confettiCount; i++) {
+                setTimeout(() => {
+                    const confetti = document.createElement('div');
+                    confetti.className = 'confetti';
+                    confetti.style.left = Math.random() * 100 + '%';
+                    confetti.style.background = colors[Math.floor(Math.random() * colors.length)];
+                    confetti.style.animationDuration = (Math.random() * 3 + 2) + 's';
+                    confetti.style.animationDelay = Math.random() * 0.5 + 's';
+                    document.body.appendChild(confetti);
+                    
+                    // Remove confetti after animation
+                    setTimeout(() => confetti.remove(), 5000);
+                }, i * 30);
+            }
+        }
+
+        // Create floating hearts effect
+        function createFloatingHearts() {
+            const hearts = ['💖', '💗', '💕', '💓', '💝', '🧸', '✨'];
+            const heartCount = 20;
+            
+            for (let i = 0; i < heartCount; i++) {
+                setTimeout(() => {
+                    const heart = document.createElement('div');
+                    heart.className = 'floating-hearts';
+                    heart.textContent = hearts[Math.floor(Math.random() * hearts.length)];
+                    heart.style.left = Math.random() * 100 + '%';
+                    heart.style.bottom = '0';
+                    heart.style.animationDuration = (Math.random() * 2 + 3) + 's';
+                    heart.style.animationDelay = Math.random() * 0.5 + 's';
+                    document.body.appendChild(heart);
+                    
+                    // Remove heart after animation
+                    setTimeout(() => heart.remove(), 5000);
+                }, i * 100);
+            }
+        }
+
+        // Handle "Yes" button click - show success message
+        function handleYes() {
+            const questionSection = document.getElementById('questionSection');
+            const successMessage = document.getElementById('successMessage');
+            
+            // Hide the question and buttons
+            questionSection.classList.add('hidden');
+            
+            // Show the success message
+            successMessage.classList.remove('hidden');
+            successMessage.style.display = 'block';
+            
+            // Trigger confetti animation
+            createConfetti();
+            
+            // Trigger floating hearts animation
+            setTimeout(() => {
+                createFloatingHearts();
+            }, 500);
+            
+            // Add more confetti bursts
+            setTimeout(() => {
+                createConfetti();
+            }, 1500);
+        }
+    </script>
+</body>
+</html>
